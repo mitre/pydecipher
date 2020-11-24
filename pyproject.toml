@@ -1,0 +1,19 @@
+[tool.towncrier]
+package = "pydecipher"
+directory = "./docs/changes"
+filename = "./docs/changelog.rst"
+
+[tool.black]
+line-length = 120
+verbose = true
+target-version = ['py38']
+exclude = '''
+/(
+    pydecipher/reference_files/source_code
+  |  \.eggs
+  | \.git
+  | \.venv
+  | tmp\*
+  | \*_output
+)/
+'''

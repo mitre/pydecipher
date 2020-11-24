@@ -1,0 +1,578 @@
+{
+    "method": "manual inspection",
+    "python_version": "2.7",
+    "remapped_opcodes": [
+        {
+            "correct": "false we guessed 9",
+            "opcode": 0,
+            "opname": "STOP_CODE",
+            "remapped_value": 60
+        },
+        {
+            "opcode": 1,
+            "opname": "POP_TOP",
+            "remapped_value": 61
+        },
+        {
+            "opcode": 2,
+            "opname": "ROT_TWO",
+            "remapped_value": 62
+        },
+        {
+            "opcode": 3,
+            "opname": "ROT_THREE",
+            "remapped_value": 63
+        },
+        {
+            "opcode": 4,
+            "opname": "DUP_TOP",
+            "remapped_value": 64
+        },
+        {
+            "opcode": 5,
+            "opname": "ROT_FOUR",
+            "remapped_value": 65
+        },
+        {
+            "correct": "false we guessed 25",
+            "opcode": 9,
+            "opname": "NOP",
+            "remapped_value": 69
+        },
+        {
+            "opcode": 10,
+            "opname": "UNARY_POSITIVE",
+            "remapped_value": 80
+        },
+        {
+            "opcode": 11,
+            "opname": "UNARY_NEGATIVE",
+            "remapped_value": 81
+        },
+        {
+            "opcode": 12,
+            "opname": "UNARY_NOT",
+            "remapped_value": 82
+        },
+        {
+            "correct": "false we guessed 26",
+            "opcode": 13,
+            "opname": "UNARY_CONVERT",
+            "remapped_value": 83
+        },
+        {
+            "opcode": 15,
+            "opname": "UNARY_INVERT",
+            "remapped_value": 85
+        },
+        {
+            "opcode": 19,
+            "opname": "BINARY_POWER",
+            "remapped_value": 89
+        },
+        {
+            "opcode": 20,
+            "opname": "BINARY_MULTIPLY",
+            "remapped_value": 79
+        },
+        {
+            "opcode": 21,
+            "opname": "BINARY_DIVIDE",
+            "remapped_value": 78
+        },
+        {
+            "opcode": 22,
+            "opname": "BINARY_MODULO",
+            "remapped_value": 77
+        },
+        {
+            "opcode": 23,
+            "opname": "BINARY_ADD",
+            "remapped_value": 76
+        },
+        {
+            "opcode": 24,
+            "opname": "BINARY_SUBTRACT",
+            "remapped_value": 75
+        },
+        {
+            "opcode": 25,
+            "opname": "BINARY_SUBSCR",
+            "remapped_value": 74
+        },
+        {
+            "opcode": 26,
+            "opname": "BINARY_FLOOR_DIVIDE",
+            "remapped_value": 73
+        },
+        {
+            "opcode": 27,
+            "opname": "BINARY_TRUE_DIVIDE",
+            "remapped_value": 72
+        },
+        {
+            "opcode": 28,
+            "opname": "INPLACE_FLOOR_DIVIDE",
+            "remapped_value": 71
+        },
+        {
+            "correct": "false - we guessed 29",
+            "opcode": 29,
+            "opname": "INPLACE_TRUE_DIVIDE",
+            "remapped_value": 70
+        },
+        {
+            "opcode": 30,
+            "opname": "SLICE_0",
+            "remapped_value": 20
+        },
+        {
+            "opcode": 31,
+            "opname": "SLICE_1",
+            "remapped_value": 21
+        },
+        {
+            "opcode": 32,
+            "opname": "SLICE_2",
+            "remapped_value": 22
+        },
+        {
+            "opcode": 33,
+            "opname": "SLICE_3",
+            "remapped_value": 23
+        },
+        {
+            "opcode": 40,
+            "opname": "STORE_SLICE_0",
+            "remapped_value": 30
+        },
+        {
+            "opcode": 41,
+            "opname": "STORE_SLICE_1",
+            "remapped_value": 31
+        },
+        {
+            "opcode": 42,
+            "opname": "STORE_SLICE_2",
+            "remapped_value": 32
+        },
+        {
+            "opcode": 43,
+            "opname": "STORE_SLICE_3",
+            "remapped_value": 33
+        },
+        {
+            "opcode": 50,
+            "opname": "DELETE_SLICE_0",
+            "remapped_value": 40
+        },
+        {
+            "opcode": 51,
+            "opname": "DELETE_SLICE_1",
+            "remapped_value": 41
+        },
+        {
+            "opcode": 52,
+            "opname": "DELETE_SLICE_2",
+            "remapped_value": 42
+        },
+        {
+            "opcode": 53,
+            "opname": "DELETE_SLICE_3",
+            "remapped_value": 43
+        },
+        {
+            "opcode": 54,
+            "opname": "STORE_MAP",
+            "remapped_value": 44
+        },
+        {
+            "opcode": 55,
+            "opname": "INPLACE_ADD",
+            "remapped_value": 45
+        },
+        {
+            "opcode": 56,
+            "opname": "INPLACE_SUBTRACT",
+            "remapped_value": 46
+        },
+        {
+            "opcode": 57,
+            "opname": "INPLACE_MULTIPLY",
+            "remapped_value": 47
+        },
+        {
+            "opcode": 58,
+            "opname": "INPLACE_DIVIDE",
+            "remapped_value": 48
+        },
+        {
+            "correct": "false we guessed 59",
+            "opcode": 59,
+            "opname": "INPLACE_MODULO",
+            "remapped_value": 49
+        },
+        {
+            "opcode": 60,
+            "opname": "STORE_SUBSCR",
+            "remapped_value": 50
+        },
+        {
+            "opcode": 61,
+            "opname": "DELETE_SUBSCR",
+            "remapped_value": 51
+        },
+        {
+            "opcode": 62,
+            "opname": "BINARY_LSHIFT",
+            "remapped_value": 52
+        },
+        {
+            "opcode": 63,
+            "opname": "BINARY_RSHIFT",
+            "remapped_value": 53
+        },
+        {
+            "opcode": 64,
+            "opname": "BINARY_AND",
+            "remapped_value": 54
+        },
+        {
+            "opcode": 65,
+            "opname": "BINARY_XOR",
+            "remapped_value": 55
+        },
+        {
+            "opcode": 66,
+            "opname": "BINARY_OR",
+            "remapped_value": 56
+        },
+        {
+            "opcode": 67,
+            "opname": "INPLACE_POWER",
+            "remapped_value": 57
+        },
+        {
+            "opcode": 68,
+            "opname": "GET_ITER",
+            "remapped_value": 58
+        },
+        {
+            "correct": "false we guessed 70",
+            "opcode": 70,
+            "opname": "PRINT_EXPR",
+            "remapped_value": 9
+        },
+        {
+            "opcode": 71,
+            "opname": "PRINT_ITEM",
+            "remapped_value": 8
+        },
+        {
+            "opcode": 72,
+            "opname": "PRINT_NEWLINE",
+            "remapped_value": 7
+        },
+        {
+            "opcode": 73,
+            "opname": "PRINT_ITEM_TO",
+            "remapped_value": 6
+        },
+        {
+            "opcode": 74,
+            "opname": "PRINT_NEWLINE_TO",
+            "remapped_value": 5
+        },
+        {
+            "opcode": 75,
+            "opname": "INPLACE_LSHIFT",
+            "remapped_value": 4
+        },
+        {
+            "opcode": 76,
+            "opname": "INPLACE_RSHIFT",
+            "remapped_value": 3
+        },
+        {
+            "opcode": 77,
+            "opname": "INPLACE_AND",
+            "remapped_value": 2
+        },
+        {
+            "opcode": 78,
+            "opname": "INPLACE_XOR",
+            "remapped_value": 1
+        },
+        {
+            "opcode": 79,
+            "opname": "INPLACE_OR",
+            "remapped_value": 0
+        },
+        {
+            "opcode": 80,
+            "opname": "BREAK_LOOP",
+            "remapped_value": 10
+        },
+        {
+            "opcode": 81,
+            "opname": "WITH_CLEANUP",
+            "remapped_value": 11
+        },
+        {
+            "opcode": 82,
+            "opname": "LOAD_LOCALS",
+            "remapped_value": 12
+        },
+        {
+            "opcode": 83,
+            "opname": "RETURN_VALUE",
+            "remapped_value": 13
+        },
+        {
+            "opcode": 84,
+            "opname": "IMPORT_STAR",
+            "remapped_value": 14
+        },
+        {
+            "opcode": 85,
+            "opname": "EXEC_STMT",
+            "remapped_value": 15
+        },
+        {
+            "opcode": 86,
+            "opname": "YIELD_VALUE",
+            "remapped_value": 16
+        },
+        {
+            "opcode": 87,
+            "opname": "POP_BLOCK",
+            "remapped_value": 17
+        },
+        {
+            "opcode": 88,
+            "opname": "END_FINALLY",
+            "remapped_value": 18
+        },
+        {
+            "opcode": 89,
+            "opname": "BUILD_CLASS",
+            "remapped_value": 19
+        },
+        {
+            "opcode": 90,
+            "opname": "STORE_NAME",
+            "remapped_value": 100
+        },
+        {
+            "opcode": 91,
+            "opname": "DELETE_NAME",
+            "remapped_value": 101
+        },
+        {
+            "opcode": 92,
+            "opname": "UNPACK_SEQUENCE",
+            "remapped_value": 102
+        },
+        {
+            "opcode": 93,
+            "opname": "FOR_ITER",
+            "remapped_value": 103
+        },
+        {
+            "opcode": 94,
+            "opname": "LIST_APPEND",
+            "remapped_value": 104
+        },
+        {
+            "opcode": 95,
+            "opname": "STORE_ATTR",
+            "remapped_value": 105
+        },
+        {
+            "opcode": 96,
+            "opname": "DELETE_ATTR",
+            "remapped_value": 106
+        },
+        {
+            "opcode": 97,
+            "opname": "STORE_GLOBAL",
+            "remapped_value": 107
+        },
+        {
+            "correct": "false we guessed 88",
+            "opcode": 98,
+            "opname": "DELETE_GLOBAL",
+            "remapped_value": 108
+        },
+        {
+            "opcode": 99,
+            "opname": "DUP_TOPX",
+            "remapped_value": 109
+        },
+        {
+            "opcode": 100,
+            "opname": "LOAD_CONST",
+            "remapped_value": 90
+        },
+        {
+            "opcode": 101,
+            "opname": "LOAD_NAME",
+            "remapped_value": 91
+        },
+        {
+            "opcode": 102,
+            "opname": "BUILD_TUPLE",
+            "remapped_value": 92
+        },
+        {
+            "opcode": 103,
+            "opname": "BUILD_LIST",
+            "remapped_value": 93
+        },
+        {
+            "opcode": 104,
+            "opname": "BUILD_SET",
+            "remapped_value": 94
+        },
+        {
+            "opcode": 105,
+            "opname": "BUILD_MAP",
+            "remapped_value": 95
+        },
+        {
+            "opcode": 106,
+            "opname": "LOAD_ATTR",
+            "remapped_value": 96
+        },
+        {
+            "opcode": 107,
+            "opname": "COMPARE_OP",
+            "remapped_value": 97
+        },
+        {
+            "opcode": 108,
+            "opname": "IMPORT_NAME",
+            "remapped_value": 98
+        },
+        {
+            "opcode": 109,
+            "opname": "IMPORT_FROM",
+            "remapped_value": 99
+        },
+        {
+            "opcode": 110,
+            "opname": "JUMP_FORWARD",
+            "remapped_value": 130
+        },
+        {
+            "opcode": 111,
+            "opname": "JUMP_IF_FALSE_OR_POP",
+            "remapped_value": 131
+        },
+        {
+            "opcode": 112,
+            "opname": "JUMP_IF_TRUE_OR_POP",
+            "remapped_value": 132
+        },
+        {
+            "opcode": 113,
+            "opname": "JUMP_ABSOLUTE",
+            "remapped_value": 133
+        },
+        {
+            "opcode": 114,
+            "opname": "POP_JUMP_IF_FALSE",
+            "remapped_value": 134
+        },
+        {
+            "opcode": 115,
+            "opname": "POP_JUMP_IF_TRUE",
+            "remapped_value": 135
+        },
+        {
+            "opcode": 116,
+            "opname": "LOAD_GLOBAL",
+            "remapped_value": 136
+        },
+        {
+            "opcode": 119,
+            "opname": "CONTINUE_LOOP",
+            "remapped_value": 139
+        },
+        {
+            "opcode": 120,
+            "opname": "SETUP_LOOP",
+            "remapped_value": 140
+        },
+        {
+            "opcode": 121,
+            "opname": "SETUP_EXCEPT",
+            "remapped_value": 141
+        },
+        {
+            "opcode": 122,
+            "opname": "SETUP_FINALLY",
+            "remapped_value": 142
+        },
+        {
+            "opcode": 124,
+            "opname": "LOAD_FAST",
+            "remapped_value": 144
+        },
+        {
+            "opcode": 125,
+            "opname": "STORE_FAST",
+            "remapped_value": 145
+        },
+        {
+            "opcode": 126,
+            "opname": "DELETE_FAST",
+            "remapped_value": 146
+        },
+        {
+            "opcode": 130,
+            "opname": "RAISE_VARARGS",
+            "remapped_value": 110
+        },
+        {
+            "opcode": 131,
+            "opname": "CALL_FUNCTION",
+            "remapped_value": 111
+        },
+        {
+            "opcode": 132,
+            "opname": "MAKE_FUNCTION",
+            "remapped_value": 112
+        },
+        {
+            "opcode": 133,
+            "opname": "BUILD_SLICE",
+            "remapped_value": 113
+        },
+        {
+            "opcode": 134,
+            "opname": "MAKE_CLOSURE",
+            "remapped_value": 114
+        },
+        {
+            "opcode": 135,
+            "opname": "LOAD_CLOSURE",
+            "remapped_value": 115
+        },
+        {
+            "opcode": 136,
+            "opname": "LOAD_DEREF",
+            "remapped_value": 116
+        },
+        {
+            "opcode": 137,
+            "opname": "STORE_DEREF",
+            "remapped_value": 117
+        },
+        {
+            "opcode": 140,
+            "opname": "CALL_FUNCTION_VAR",
+            "remapped_value": 120
+        },
+    ]
+}
