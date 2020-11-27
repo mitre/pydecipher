@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """Sphinx documentation configuration."""
+from pydecipher import __version__ as pydecipher_version
 
 # Configuration file for the Sphinx documentation builder.
 #
@@ -25,7 +26,6 @@ copyright = "2020, The MITRE Corporation"
 author = "The MITRE Corporation"
 
 # The full version, including alpha/beta/rc tags
-pydecipher_version = "1.0.0"
 release = pydecipher_version
 
 
