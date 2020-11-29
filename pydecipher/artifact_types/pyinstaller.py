@@ -17,7 +17,7 @@ from uuid import uuid4 as uniquename
 import xdis
 from Crypto.Cipher import AES
 from xdis.magics import magic2int
-from xdis.main import disassemble_file
+from xdis.disasm import disassemble_file
 
 import pydecipher
 from pydecipher import bytecode
