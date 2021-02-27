@@ -90,7 +90,10 @@ class CArchive:
             self.name = name
 
     def __init__(
-        self, carchive_path_or_bytes: Union[str, os.PathLike, BinaryIO], output_dir: os.PathLike = None, **kwargs,
+        self,
+        carchive_path_or_bytes: Union[str, os.PathLike, BinaryIO],
+        output_dir: os.PathLike = None,
+        **kwargs,
     ):
         if isinstance(carchive_path_or_bytes, str):
             carchive_path_or_bytes: Path = Path(carchive_path_or_bytes)
@@ -155,7 +158,8 @@ class CArchive:
         if self.pyinstaller_version == 2.0 or self.pyinstaller_version == "unknown":
             try:
                 (magic, self.length_of_package, self.toc_offset, self.toc_size, self.python_version,) = struct.unpack(
-                    "!8siiii", self.archive_contents[self.magic_index : self.magic_index + self.PYINST20_COOKIE_SIZE],
+                    "!8siiii",
+                    self.archive_contents[self.magic_index : self.magic_index + self.PYINST20_COOKIE_SIZE],
                 )
             except:
                 pass
@@ -214,7 +218,12 @@ class CArchive:
             type_code = chr(type_code)
             self.toc.append(
                 self.CTOCEntry(
-                    entry_offset, compressed_data_size, uncompressed_data_size, compression_flag, type_code, name,
+                    entry_offset,
+                    compressed_data_size,
+                    uncompressed_data_size,
+                    compression_flag,
+                    type_code,
+                    name,
                 )
             )
 
@@ -353,7 +362,10 @@ class ZlibArchive:
             self.compressed_data_size = compressed_data_size
 
     def __init__(
-        self, zlibarchive_path_or_bytes: Union[str, os.PathLike, BinaryIO], output_dir: os.PathLike = None, **kwargs,
+        self,
+        zlibarchive_path_or_bytes: Union[str, os.PathLike, BinaryIO],
+        output_dir: os.PathLike = None,
+        **kwargs,
     ):
         if isinstance(zlibarchive_path_or_bytes, str):
             zlibarchive_path_or_bytes: Path = Path(zlibarchive_path_or_bytes)

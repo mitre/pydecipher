@@ -80,7 +80,10 @@ class PortableExecutable(metaclass=abc.ABCMeta):
     ]  # case-insensitive patterns for resources that should be dumped/unpacked
 
     def __init__(
-        self, pe_path_or_bytes: Union[str, os.PathLike, BinaryIO], output_dir: os.PathLike = None, **kwargs,
+        self,
+        pe_path_or_bytes: Union[str, os.PathLike, BinaryIO],
+        output_dir: os.PathLike = None,
+        **kwargs,
     ) -> None:
         if isinstance(pe_path_or_bytes, str):
             pe_path_or_bytes: pathlib.Path = pathlib.Path(pe_path_or_bytes)
@@ -334,5 +337,7 @@ class PortableExecutable(metaclass=abc.ABCMeta):
         for artifact_path in unpack_me:
             output_dir_name: str = utils.slugify(str(artifact_path.name) + "_output")
             pydecipher.unpack(
-                artifact_path, output_dir=self.output_dir.joinpath(output_dir_name), **self.kwargs,
+                artifact_path,
+                output_dir=self.output_dir.joinpath(output_dir_name),
+                **self.kwargs,
             )

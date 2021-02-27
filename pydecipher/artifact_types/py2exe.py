@@ -42,7 +42,10 @@ class PYTHONSCRIPT:
     archive_name = ""  # name of archive, if built into PE overlay
 
     def __init__(
-        self, pythonscript_path_or_bytes: Union[str, os.PathLike, BinaryIO], output_dir: os.PathLike = None, **kwargs,
+        self,
+        pythonscript_path_or_bytes: Union[str, os.PathLike, BinaryIO],
+        output_dir: os.PathLike = None,
+        **kwargs,
     ):
         if isinstance(pythonscript_path_or_bytes, str):
             pythonscript_path_or_bytes: Path = Path(pythonscript_path_or_bytes)
@@ -85,9 +88,12 @@ class PYTHONSCRIPT:
     def validate_pythonscript_resource(self):
         header_size = struct.calcsize(b"iiii")  # TODO check if this should be B for unbuffered flag
         try:
-            (self.magic_value, self.optimization_level, self.unbuffered_flag, self.code_len,) = struct.unpack(
-                b"iiii", self.resource_contents[:header_size]
-            )
+            (
+                self.magic_value,
+                self.optimization_level,
+                self.unbuffered_flag,
+                self.code_len,
+            ) = struct.unpack(b"iiii", self.resource_contents[:header_size])
         except struct.error:
             return False
 

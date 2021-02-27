@@ -49,7 +49,10 @@ class ZipFile:
     kwargs: Any
 
     def __init__(
-        self, zip_path_or_bytes: Union[str, pathlib.Path, BinaryIO], output_dir: pathlib.Path = None, **kwargs,
+        self,
+        zip_path_or_bytes: Union[str, pathlib.Path, BinaryIO],
+        output_dir: pathlib.Path = None,
+        **kwargs,
     ) -> None:
         """Construct a zip file artifact.
 

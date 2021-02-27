@@ -49,10 +49,14 @@ def _parse_args(args: List = None) -> argparse.Namespace:
       The populated namespace of options for pydecipher's runtime.
     """
     parser: argparse.ArgumentParser = argparse.ArgumentParser(
-        prog=pydecipher.name, description="A tool to aid in the analysis of frozen Python artifacts.",
+        prog=pydecipher.name,
+        description="A tool to aid in the analysis of frozen Python artifacts.",
     )
     parser.add_argument(
-        "-V", "--version", action="version", version=f"%(prog)s {pydecipher.__version__}",
+        "-V",
+        "--version",
+        action="version",
+        version=f"%(prog)s {pydecipher.__version__}",
     )
     parser.add_argument("artifact_path", type=str, help="Path to python artifact")
     output_settings = parser.add_mutually_exclusive_group()
@@ -65,10 +69,15 @@ def _parse_args(args: List = None) -> argparse.Namespace:
         help="Decompile all pyc files in addition to the top-level files found in each artifact.",
     )
     parser.add_argument(
-        "--version-hint", type=str, help="The version of Python used to freeze the artifact.",
+        "--version-hint",
+        type=str,
+        help="The version of Python used to freeze the artifact.",
     )
     parser.add_argument(
-        "-r", "--remapping-file", type=str, help="A path to a pydecipher remapping file",
+        "-r",
+        "--remapping-file",
+        type=str,
+        help="A path to a pydecipher remapping file",
     )
     parser.add_argument(
         "-o",

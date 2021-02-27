@@ -67,7 +67,10 @@ class Pyc:
     ]
 
     def __init__(
-        self, file_path_or_bytes: Union[str, pathlib.Path, BinaryIO], output_dir: pathlib.Path = None, **kwargs,
+        self,
+        file_path_or_bytes: Union[str, pathlib.Path, BinaryIO],
+        output_dir: pathlib.Path = None,
+        **kwargs,
     ) -> None:
         if isinstance(file_path_or_bytes, str):
             file_path_or_bytes: pathlib.Path = pathlib.Path(file_path_or_bytes)

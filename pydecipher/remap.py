@@ -74,10 +74,17 @@ def _parse_args(_args: List = None) -> argparse.Namespace:
         ),
     )
     remap_method.add_argument(
-        "--opcode-file", action="store_true", required=False, help="The input is a compiled instance of opcode.py.",
+        "--opcode-file",
+        action="store_true",
+        required=False,
+        help="The input is a compiled instance of opcode.py.",
     )
     remap_method.add_argument(
-        "-s", "--standard-bytecode-path", type=str, required=False, help="Path to standard Python bytecode",
+        "-s",
+        "--standard-bytecode-path",
+        type=str,
+        required=False,
+        help="Path to standard Python bytecode",
     )
     remap_method.add_argument(
         "-c",
@@ -767,9 +774,9 @@ def run(_args: List[str] = None) -> None:
             if magic_num:
                 compiled_file: str
                 for compiled_file in os.listdir(pathlib.Path(__file__).parent / "reference_files" / "compiled"):
-                    full_path_obj: pathlib.Path = pathlib.Path(
-                        __file__
-                    ).parent / "reference_files" / "compiled" / compiled_file
+                    full_path_obj: pathlib.Path = (
+                        pathlib.Path(__file__).parent / "reference_files" / "compiled" / compiled_file
+                    )
                     infile: BinaryIO
                     with full_path_obj.open("rb") as infile:
                         if xdis.magics.magic2int(infile.read(4)) == magic_num:
