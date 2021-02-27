@@ -46,7 +46,7 @@ setuptools.setup(
     ],
     install_requires=[
         # "xdis",
-        "xdis @ git+https://github.com/mitre/python-xdis.git@alternate_opmap",
+        "xdis @ git+https://github.com/rocky/python-xdis.git",
         "python-magic",
         "argparse",
         "six",
