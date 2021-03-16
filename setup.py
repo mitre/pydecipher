@@ -45,8 +45,7 @@ setuptools.setup(
         "Topic :: Software Development :: Disassemblers",
     ],
     install_requires=[
-        # "xdis",
-        "xdis @ git+https://github.com/rocky/python-xdis.git",
+        "xdis>=5.0.8",
         "python-magic",
         "argparse",
         "six",
