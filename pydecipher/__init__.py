@@ -49,7 +49,7 @@ __all__ = [
     "unpack",
 ]
 
-__version__: str = "1.0.0"
+__version__: str = "1.0.1b.0"
 name: str = "pydecipher"
 
 PYD_ROOT_DIR: pathlib.Path = pathlib.Path(__file__).parents[1]

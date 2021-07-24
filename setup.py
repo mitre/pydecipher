@@ -26,7 +26,7 @@ EXTRAS = {
 
 setuptools.setup(
     name="pydecipher",
-    version="1.0.0",
+    version="1.0.1b.0",
     author="The MITRE Corporation",
     author_email="pydecipher@mitre.org",
     description="Python un-freezing and bytecode extraction + analysis framework",
