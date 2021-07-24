@@ -45,6 +45,7 @@ setuptools.setup(
         "Topic :: Security",
         "Topic :: Software Development :: Code Generators",
         "Topic :: Software Development :: Disassemblers",
+        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
     ],
     install_requires=[
         "xdis>=5.0.8",
