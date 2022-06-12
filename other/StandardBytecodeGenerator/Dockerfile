@@ -1,7 +1,7 @@
 # docker build . -t pydecipher/sbg
 # docker run --volume "$(pwd):/bc" pydecipher/sbg 2.7.15
 
-FROM ubuntu
+FROM ubuntu:18.04
 
 ENV DEBIAN_FRONTEND noninteractive
 
