@@ -55,7 +55,7 @@ setuptools.setup(
         "uncompyle6",
         "signify>=0.3.0",
         "asn1crypto",
-        "pycrypto",
+        "pycryptodome",
         "textdistance",
         "Pebble",
     ],
