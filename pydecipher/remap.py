@@ -149,7 +149,8 @@ def write_remapping_file(
 
     xdis_opcode: ModuleType = None
     try:
-        xdis_opcode = xdis.disasm.get_opcode(version, is_pypy=False)
+        version_tuple = xdis.magics.py_str2tuple(version)
+        xdis_opcode = xdis.disasm.get_opcode(version_tuple, is_pypy=False)
     except Exception:
         logger.debug(f"[!] Couldn't retrieve version {version} from xdis! Continuing anyway...")
 
@@ -285,7 +286,8 @@ def fill_opmap_gaps(remappings: Dict[int, int], version: str) -> Dict[int, Tuple
     filled_remappings: Dict[int, Tuple[int, bool]] = {k: (v, False) for k, v in remappings.items()}
     is_pypy: bool = True if "pypy" in version else False
     try:
-        opcode_obj: ModuleType = xdis.disasm.get_opcode(version, is_pypy)
+        version_tuple = xdis.magics.py_str2tuple(version)
+        opcode_obj: ModuleType = xdis.disasm.get_opcode(version_tuple, is_pypy)
     except KeyError:
         raise KeyError(f"[!] The version specified, {version}, is not supported by xdis.")
     xdis_opcode_map: Dict[str, int] = opcode_obj.opmap
@@ -348,13 +350,14 @@ def megafile_remap(
     (
         reference_filename,
         reference_co,
-        reference_version,
+        version_tuple,
         reference_timestamp,
         reference_magic_int,
         reference_is_pypy,
         reference_source_size,
         reference_sip_hash,
     ) = xdis.disasm.disassemble_file(str(reference_megafile), outstream=open(os.devnull, "w"))
+    reference_version = xdis.magics.version_tuple_to_str(version_tuple)
 
     fixed_megafile_file: pathlib.Path
     if fixed_megafile_file := artifact_types.pyc.Pyc.check_and_fix_pyc(
@@ -378,13 +381,14 @@ def megafile_remap(
         (
             remapped_filename,
             remapped_co,
-            remapped_version,
+            version_tuple,
             remapped_timestamp,
             remapped_magic_int,
             remapped_is_pypy,
             remapped_source_size,
             remapped_sip_hash,
         ) = xdis.disasm.disassemble_file(str(remapped_bytecode_path), outstream=open(os.devnull, "w"))
+        remapped_version = xdis.magics.version_tuple_to_str(version_tuple)
     except Exception as e:
         e: Exception
         logger.debug(f"Error disassembling remap megafile: {e}")
@@ -427,7 +431,8 @@ def opcode_constants_remap(
     def get_nearest_opcode(opname: str, unused_opcodes: List[int], version: str) -> int:
         xdis_opcode: ModuleType
         try:
-            xdis_opcode = xdis.disasm.get_opcode(version, is_pypy=False)
+            version_tuple = xdis.magics.py_str2tuple(version)
+            xdis_opcode = xdis.disasm.get_opcode(version_tuple, is_pypy=False)
             actual_opcode = getattr(xdis_opcode, opname)
         except Exception:
             return unused_opcodes[0]
@@ -458,9 +463,10 @@ def opcode_constants_remap(
     source_size: int
     sip_hash: str
     try:
-        (filename, co, version, timestamp, magic_int, is_pypy, source_size, sip_hash) = xdis.disasm.disassemble_file(
+        (filename, co, version_tuple, timestamp, magic_int, is_pypy, source_size, sip_hash) = xdis.disasm.disassemble_file(
             str(opcode_file), header=True, outstream=open(os.devnull, "w")
         )
+        version = xdis.magics.version_tuple_to_str(version_tuple)
     except Exception as e:
         e: Exception
         logger.error(f"[!] Couldn't disassemble opcode file {opcode_file} with error: {e}")
@@ -522,7 +528,8 @@ def opcode_constants_remap(
             break
 
     is_pypy: bool = "pypy" in xdis.magics.magicint2version[magic_int]
-    opc: ModuleType = xdis.disasm.get_opcode(version, is_pypy)
+    version_tuple = xdis.magics.py_str2tuple(version)
+    opc: ModuleType = xdis.disasm.get_opcode(version_tuple, is_pypy)
     remappings: Dict[int, Dict[int, int]] = {}
 
     # We need to match the format of the other remappings method's return values
@@ -656,13 +663,14 @@ def standard_pyc_remap(
                 (
                     remapped_filename,
                     remapped_co,
-                    remapped_version,
+                    version_tuple,
                     remapped_timestamp,
                     remapped_magic_int,
                     remapped_is_pypy,
                     remapped_source_size,
                     remapped_sip_hash,
                 ) = xdis.disasm.disassemble_file(str(pyc_filepath), header=True, outstream=open(os.devnull, "w"))
+                remapped_version = xdis.magics.version_tuple_to_str(version_tuple)
 
                 reference_filename: str
                 reference_co: CodeType  # can also be xdis codetypes
@@ -675,13 +683,14 @@ def standard_pyc_remap(
                 (
                     reference_filename,
                     reference_co,
-                    reference_version,
+                    version_tuple,
                     reference_timestamp,
                     reference_magic_int,
                     reference_is_pypy,
                     reference_source_size,
                     reference_sip_hash,
                 ) = xdis.disasm.disassemble_file(str(reference_file), outstream=open(os.devnull, "w"))
+                reference_version = xdis.magics.version_tuple_to_str(version_tuple)
             except Exception:
                 continue
 

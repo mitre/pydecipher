@@ -422,13 +422,14 @@ class ZlibArchive:
                 (
                     crypto_key_filename,
                     crypto_key_co,
-                    crypto_key_python_version,
+                    version_tuple,
                     crypto_key_compilation_timestamp,
                     crypto_key_magic_int,
                     crypto_key_is_pypy,
                     crypto_key_source_size,
                     crypto_key_sip_hash,
                 ) = disassemble_file(str(key_file), outstream=open(os.devnull, "w"))
+                crypto_key_python_version = xdis.magics.version_tuple_to_str(version_tuple)
             except Exception as e:
                 logger.warning(f"[!] Could not disassemble file {key_file}. Received error: {e}")
             else:

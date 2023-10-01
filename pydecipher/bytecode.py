@@ -296,7 +296,7 @@ def decompile_pyc(arg_tuple: Tuple[pathlib.Path, Dict[str, int], Dict[str, Union
                 (
                     filename,
                     co,
-                    version,
+                    version_tuple,
                     timestamp,
                     magic_int,
                     is_pypy,
@@ -308,8 +308,8 @@ def decompile_pyc(arg_tuple: Tuple[pathlib.Path, Dict[str, int], Dict[str, Union
                 output_file: TextIO
                 with new_file_name.open(mode="w") as output_file:
                     uncompyle6.main.decompile(
-                        version,
                         co,
+                        version_tuple,
                         timestamp=timestamp,
                         source_size=source_size,
                         magic_int=magic_int,
@@ -394,7 +394,8 @@ def diff_opcode(code_standard: CodeType, code_remapped: CodeType, version: str =
     HAVE_ARGUMENT: int = 90
     if version:
         try:
-            xdis_opcode: ModuleType = xdis.disasm.get_opcode(version, is_pypy=("pypy" in version))
+            version_tuple = xdis.magics.py_str2tuple(version)
+            xdis_opcode: ModuleType = xdis.disasm.get_opcode(version_tuple, is_pypy=("pypy" in version))
         except TypeError:
             logger.warning("[!] Couldn't retrieve version {version}'s opcodes from xdis.")
         else:
@@ -509,7 +510,8 @@ def validate_opmap(version: str, opmap: Dict[str, int]) -> bool:
     """
     is_pypy: bool = True if "pypy" in version else False
     try:
-        opcode_obj: ModuleType = xdis.disasm.get_opcode(version, is_pypy)
+        version_tuple = xdis.magics.py_str2tuple(version)
+        opcode_obj: ModuleType = xdis.disasm.get_opcode(version_tuple, is_pypy)
     except KeyError:
         raise KeyError(f"[!] The version specified, {version}, is not supported by xdis.")
     xdis_opcode_map: Dict[str, int] = opcode_obj.opmap
